@@ -23,14 +23,23 @@ Crawl dữ liệu:
 * source/get_room_infomation: dựa vào đường dẫn website thu được ở get_hotel_infomation. Tiến hành vào từng đường dẫn để thu thập. Giá thu thập tại mỗi phòng chỉ tính thời gian thuê là 01 ngày. Tên tập tin thu được sau khi crawl sẽ là {0}.csv với {0} là ngày hôm đó. Thu thập dữ liệu từ ngày hiện tại đến 7 ngày gần nhất.
   - Dữ kiệu crawl được sẽ gồm các thuộc tính:
             + id : ID khách sạn
+            
             + checkin_day : Ngày check-in
+            
             + size : Kích thước phòng
+            
             + orientation : Hướng phòng (Hướng vườn, hướng phố, không cửa số, ...)
+            
             + bed : Thông tin về giường ngủ
+            
             + attribute_number : Số lượng tiện nghi
+            
             + max_guest_number : Số lượng khách tối đa có thể ở
+            
             + have_breakfast : Có bao gồm bửa sáng hay không
+            
             + cancel_ticket : Có thể hoàn hủy vé hay không
+            
             + price : Giá phòng
             
 Tiền xử lý:

@@ -13,18 +13,12 @@ Crawl dữ liệu:
 * source/get_hotel_infomation: lấy tất cả các khách sạn tại một địa điểm nào đó. Dữ liệu sẽ lấy những khách sạn có rating và lượng người đánh giá mức cụ thể nào đó để tăng tính đúng đắn của dữ liệu.
   - Dữ liệu crawl được sẽ gồm các thuộc tính:
             
-            + id : ID khách sạn
-            
-            + name : Tên khách sạn
-            
-            + url : Đường dẫn website của khách sạn đó trên mytour.vn
-            
-            + rating : Rating khách sạn
-            
-            + rate_number : Số lượng người đánh giá
-            
-            + star : Số sao khách sạn
-            
+            + id : ID khách sạn            
+            + name : Tên khách sạn            
+            + url : Đường dẫn website của khách sạn đó trên mytour.vn            
+            + rating : Rating khách sạn            
+            + rate_number : Số lượng người đánh giá            
+            + star : Số sao khách sạn            
             + lat, long (vị trí địa lý của khách sạn)
  
 * source/get_room_infomation: dựa vào đường dẫn website thu được ở get_hotel_infomation. Tiến hành vào từng đường dẫn để thu thập. Giá thu thập tại mỗi phòng chỉ tính thời gian thuê là 01 ngày. Tên tập tin thu được sau khi crawl sẽ là {0}.csv với {0} là ngày hôm đó. Thu thập dữ liệu từ ngày hiện tại đến 7 ngày gần nhất.

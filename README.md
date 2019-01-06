@@ -63,4 +63,9 @@ Tiền xử lý:
             + have_breakfast            
             + cancel_ticket            
             + PRICE (Y)
+
+- Tiền xử lý:
+    + Một số thuộc tính dùng OneHotEncoder như orientation, bed và week_day
+
+- Sau quá trình tiền xử lý, một vector dữ liệu sẽ có 32 chiều
             

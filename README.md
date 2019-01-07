@@ -78,4 +78,4 @@ Tiền xử lý:
     + RMSE, R2 = 375213, 0.62 trên tập test
 - Nhóm sử dụng model Neural Net (MLPRegressor với hàm activation là 'relu', hidden layer = (60,)) đạt được kết quả:
     + RMSE, R2 = 96263, 0.97 trên tập train
-    + RMSE, R2 = 126027, 0.96 trên t
+    + RMSE, R2 = 126027, 0.96 trên tập test

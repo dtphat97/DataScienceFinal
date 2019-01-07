@@ -39,6 +39,8 @@ Crawl dữ liệu:
  
 * Hiện tại nhóm đã crawl được hơn 5000 dòng dữ liệu
  
+* Tập tin source/visualization: Phần mô tả một vài thống kê dữ liệu
+ 
 Tiền xử lý:
 - Sau khi đã crawl dữ liệu, nhóm tiến hành tiền xử lý.
 - Tập tin source/preprocesscing_data tiến hành xử lý dữ liệu và train model

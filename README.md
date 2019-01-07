@@ -74,8 +74,6 @@ Tiền xử lý:
 
 - Train model
 - Nhóm đã thử sử dụng mô hình Linear Regression nhưng kết quả đạt được không cao.
-    + RMSE, R2 = 345066, 0.62 trên tập train
     + RMSE, R2 = 375213, 0.62 trên tập test
 - Nhóm sử dụng model Neural Net (MLPRegressor với hàm activation là 'relu', hidden layer = (21,)) đạt được kết quả:
-    + RMSE, R2 = 96263, 0.97 trên tập train
-    + RMSE, R2 = 126027, 0.96 trên tập test
+    + RMSE, R2 = 120604, 0.95 trên tập test

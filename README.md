@@ -5,13 +5,13 @@ Thành viên nhóm:
 - Võ Thanh Phương 1512420
 
 Đề tài: Dự đoán giá phòng khách sạn trên mytour.vn
-Ý nghĩa: Khi thêm mới một phòng khách sạn vào hệ thống thì sẽ dự đoán được giá khách sạn đó
+Ý nghĩa: Khi thêm mới một phòng khách sạn vào hệ thống thì sẽ dự đoán được giá khách sạn đó, hoặc chủ khách sạn có thể chủ động đánh giá để giá khách sạn của mình phù hợp
 
 Thực hiện: Trước hết nhóm thực hiện khách sạn trên một phạm vi cụ thể là ở Đà Lạt. Nếu có thể sẽ mở rộng cho toàn bộ những khách sạn trên mytour.vn
 
 Crawl dữ liệu:
 * source/get_hotel_infomation: lấy tất cả các khách sạn tại một địa điểm nào đó. Dữ liệu sẽ lấy những khách sạn có rating và lượng người đánh giá mức cụ thể nào đó để tăng tính đúng đắn của dữ liệu.
-  - Dữ liệu crawl được sẽ gồm các thuộc tính:
+  - Dữ liệu data_hotel crawl được sẽ gồm các thuộc tính:
             
             + id : ID khách sạn            
             + name : Tên khách sạn            
@@ -22,7 +22,7 @@ Crawl dữ liệu:
             + lat, long (vị trí địa lý của khách sạn)
  
 * source/get_room_infomation: dựa vào đường dẫn website thu được ở get_hotel_infomation. Tiến hành vào từng đường dẫn để thu thập. Giá thu thập tại mỗi phòng chỉ tính thời gian thuê là 01 ngày. Tên tập tin thu được sau khi crawl sẽ là {0}.csv với {0} là ngày hôm đó. Thu thập dữ liệu từ ngày hiện tại đến 7 ngày gần nhất.
-  - Dữ kiệu crawl được sẽ gồm các thuộc tính:
+  - Dữ kiệu data_room crawl được sẽ gồm các thuộc tính:
             
             + id : ID khách sạn            
             + checkin_day : Ngày check-in            
@@ -34,9 +34,14 @@ Crawl dữ liệu:
             + have_breakfast : Có bao gồm bửa sáng hay không            
             + cancel_ticket : Có thể hoàn hủy vé hay không            
             + price : Giá phòng
-            
+ 
+* Tập tin source/create_raw_data: Dữ liệu được thu thập theo ngày, mối ngày lưu vào một tập tin (.csv) có tên là ngày đó. Thực hiện nối các tập tin data_room lại và merge với tập tin data_hotel. Dữ liệu được lưu với tên raw_data.csv. Một số cột có giá trị thiếu như orientation và bed sẽ được điền những giá mới
+ 
+* Hiện tại nhóm đã crawl được hơn 5000 dòng dữ liệu
+ 
 Tiền xử lý:
 - Sau khi đã crawl dữ liệu, nhóm tiến hành tiền xử lý.
+- Tập tin source/preprocesscing_data tiến hành xử lý dữ liệu và train model
 - Tạo thêm một số cột thuộc tính mới từ dữ liệu có sắn:
             
             + distance_airpot: Khoảng cách so với sân bay thành phố Đà Lạt            
@@ -64,8 +69,13 @@ Tiền xử lý:
             + cancel_ticket            
             + PRICE (Y)
 
-- Tiền xử lý:
-    + Một số thuộc tính dùng OneHotEncoder như orientation, bed và week_day
-
+- Một số thuộc tính dùng OneHotEncoder như orientation, bed và week_day
 - Sau quá trình tiền xử lý, một vector dữ liệu sẽ có 32 chiều
-            
+
+- Train model
+- Nhóm đã thử sử dụng mô hình Linear Regression nhưng kết quả đạt được không cao.
+    + RMSE, R2 = 345066, 0.62 trên tập train
+    + RMSE, R2 = 375213, 0.62 trên tập test
+- Nhóm sử dụng model Neural Net (MLPRegressor với hàm activation là 'relu', hidden layer = (60,)) đạt được kết quả:
+    + RMSE, R2 = 96263, 0.97 trên tập train
+    + RMSE, R2 = 126027, 0.96 trên t

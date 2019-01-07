@@ -70,6 +70,8 @@ Tiền xử lý:
             + PRICE (Y)
 
 - Một số thuộc tính dùng OneHotEncoder như orientation, bed và week_day
+      + Riêng đối với bed, chuyển về dạng OneHotEncoder những giá trị có thể lớn hơn 1
+          Ví dụ: 2 giường đơn + 1 giường đôi chuyển về [2 1 0 0 ... ]
 - Sau quá trình tiền xử lý, một vector dữ liệu sẽ có 32 chiều
 
 - Train model

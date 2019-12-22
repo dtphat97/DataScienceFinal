@@ -37,8 +37,11 @@ Crawl dữ liệu:
  
 * Tập tin source/create_raw_data: Dữ liệu được thu thập theo ngày, mối ngày lưu vào một tập tin (.csv) có tên là ngày đó. Thực hiện nối các tập tin data_room lại và merge với tập tin data_hotel. Dữ liệu được lưu với tên raw_data.csv. Một số cột có giá trị thiếu như orientation và bed sẽ được điền những giá mới
  
-* Hiện tại nhóm đã crawl được hơn 5000 dòng dữ liệu
- 
+* Hiện tại nhóm đã crawl được hơn 2000 dòng dữ liệu
+- train_data: 99 khách sạn, 1578 dữ liệu phòng
+- validation_data: 27 khách sạn, 487 dữ liệu phòng
+- test_data: 25 khách sạn, 331 dữ liệu phòng 
+
 * Tập tin source/visualization: Phần mô tả một vài thống kê dữ liệu
  
 Tiền xử lý:
@@ -78,6 +81,7 @@ Tiền xử lý:
 
 - Train model
 - Nhóm đã thử sử dụng mô hình Linear Regression nhưng kết quả đạt được không cao.
-    + RMSE, R2 = 375213, 0.62 trên tập test
-- Nhóm sử dụng model Neural Net (MLPRegressor với hàm activation là 'relu', hidden layer = (21,)) đạt được kết quả (nhóm đã thử với nhiều siêu tham số và quyết định chọn như trên vì kết quả gần như là tốt nhất):
-    + RMSE, R2 = 120604, 0.95 trên tập test
+    + R2 = 0.41 trên tập validation
+- Nhóm sử dụng model Neural Net (MLPRegressor với hàm activation là 'relu', hidden layer = (21,19)) đạt được kết quả (nhóm đã thử với nhiều siêu tham số và quyết định chọn như trên vì kết quả gần như là tốt nhất):
+    + R2 = 0.79 trên tập validation
+    + R2 = 0.76 trên tập test
